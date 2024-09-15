@@ -10,3 +10,7 @@ php artisan ui bootstrap --auth
 
 npm install e npm run dev
 
+### Criando Controller estilo --resource
+
+ php artisan make:controller --resource TarefasController --model=Tarefa
+
