@@ -14,3 +14,11 @@ npm install e npm run dev
 
  php artisan make:controller --resource TarefasController --model=Tarefa
 
+ ### Mail
+
+ php artisan make:mail MensagemTesteMail --markdown emails.mensagem
+
+ ### Publicando E customizando o template de Email
+
+ php artisan vendor:publish
+
