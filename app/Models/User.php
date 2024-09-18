@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Notifications\RedefinirSenhaNotification;
+use App\Notifications\VerificarEmailNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,8 +12,8 @@ use Laravel\Sanctum\HasApiTokens;
 
 
 
-
-class User extends Authenticatable
+//implementado verificação de email do usuario
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -48,11 +48,16 @@ class User extends Authenticatable
     ];
 
 
-//Verificação de alteração de senha
+//Metodo Verificação de alteração de senha
 public function sendPasswordResetNotification($token)
 {
     // atributo email e token do usuario estanciado para Notifications/RedefinirSenhaNotification
     $this->notify(new RedefinirSenhaNotification($token, $this->email, $this->name));
+}
+
+public function sendEmailVerificationNotification()
+{
+    $this->notify(new VerificarEmailNotification($this->name));
 }
 
 

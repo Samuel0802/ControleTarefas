@@ -9,10 +9,15 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
+//Rota de Verificação de email
+Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/tarefa', TarefasController::class);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+->name('home')
+->middleware('verified');
+
+Route::resource('/tarefa', TarefasController::class)
+->middleware('verified');
 
 //Template Email
 Route::get('/mensagem', function(){

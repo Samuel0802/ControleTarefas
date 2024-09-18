@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+{{-- Tela de verificação de email --}}
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
