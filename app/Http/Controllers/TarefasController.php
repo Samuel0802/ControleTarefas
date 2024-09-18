@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NovaTarefaMail;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Validação de login de usuário
@@ -47,7 +49,28 @@ class TarefasController extends Controller
 
     public function store(Request $request)
     {
+
+         //Validação de campo
+
+         $regras = [
+            'tarefa' => 'required|min:3|max:256',
+            'data_limite_conclusao' => 'required',
+         ];
+
+         $feedback = [
+          'tarefa.min' => 'O campo tarefa deve ter no mínimo 3 caracteres',
+          'tarefa.max' => 'O campo tarefa deve ter no maximo 256 caracteres',
+         'required' => 'O campo :attribute deve ser preenchido',
+         ];
+
+         $request->validate($regras, $feedback);
+
+
        $tarefa = Tarefa::create($request->all());
+
+       $destinatario = auth()->user()->email;//e-mail do usuário logado (autentificado)
+
+       Mail::to($destinatario)->send(new NovaTarefaMail($tarefa));//Disparando a mensagem conforme classe de email
 
        return redirect()->route('tarefa.show', ['tarefa' => $tarefa->id]);
 
@@ -56,7 +79,7 @@ class TarefasController extends Controller
 
     public function show(Tarefa $tarefa)
     {
-        //
+        return view('tarefa.show', ['tarefa' => $tarefa]);
     }
 
 

@@ -16,11 +16,17 @@
                           <label for="exampleInputEmail1" class="form-label">Tarefa</label>
                           <input type="text" class="form-control"  aria-describedby="emailHelp" name="tarefa">
 
+                          <div class="text-danger">
+                            {{ $errors->has('tarefa') ? $errors->first('tarefa') : '' }}
+                        </div>
                         </div>
 
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Data limite conclusão</label>
                           <input type="date" class="form-control" name="data_limite_conclusao">
+                          <div class="text-danger">
+                            {{ $errors->has('data_limite_conclusao') ? $errors->first('data_limite_conclusao') : '' }}
+                        </div>
                         </div>
 
 

@@ -14,7 +14,7 @@ npm install e npm run dev
 
  php artisan make:controller --resource TarefasController --model=Tarefa
 
- ### Mail
+ ### Nova classe de mail
 
  php artisan make:mail MensagemTesteMail --markdown emails.mensagem
 
