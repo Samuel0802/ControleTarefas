@@ -26,4 +26,16 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+
+    // Metodo para alterar a nova senha
+
+    //vendor/laravel/ui/auth-backend/ResetsPasswords
+    protected function rules()
+    {
+        return [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => ['required', 'confirmed','min:4'],
+        ];
+    }
 }
