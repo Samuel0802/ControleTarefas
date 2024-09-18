@@ -29,7 +29,7 @@ class TarefasController extends Controller
  //Validação de login de usuário e recuperando os dados
     if(Auth::check()){
 
-      $name = Auth::user()->name;
+      $name = Auth::user()->name; //Carregando o nome do usuario logado
 
       return "Olá, $name";
 
@@ -51,7 +51,6 @@ class TarefasController extends Controller
     {
 
          //Validação de campo
-
          $regras = [
             'tarefa' => 'required|min:3|max:256',
             'data_limite_conclusao' => 'required',
@@ -65,10 +64,12 @@ class TarefasController extends Controller
 
          $request->validate($regras, $feedback);
 
+       $dados = $request->all('tarefa','data_limite_conclusao'); //os atributos que serão recuperado para create receber
+       $dados  ['user_id'] = auth()->user()->id; //Receber id do usuário autentificado
 
-       $tarefa = Tarefa::create($request->all());
+       $tarefa = Tarefa::create($dados);
 
-       $destinatario = auth()->user()->email;//e-mail do usuário logado (autentificado)
+       $destinatario = auth()->user()->email;//enviar e-mail do usuário logado (autentificado)
 
        Mail::to($destinatario)->send(new NovaTarefaMail($tarefa));//Disparando a mensagem conforme classe de email
 
