@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth; //Validação de login de usuário
 
 class TarefasController extends Controller
 {
@@ -38,49 +38,40 @@ class TarefasController extends Controller
         return 'Chegamos até aqui';
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+ //create ele joga para store para fazer o insert
     public function create()
     {
-        //
+        return view('tarefa.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        //
+       $tarefa = Tarefa::create($request->all());
+
+       return redirect()->route('tarefa.show', ['tarefa' => $tarefa->id]);
+
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Tarefa $tarefa)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Tarefa $tarefa)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Tarefa $tarefa)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Tarefa $tarefa)
     {
         //
