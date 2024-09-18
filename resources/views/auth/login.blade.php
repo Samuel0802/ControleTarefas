@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+{{-- TELA DE LOGIN USER --}}
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -22,3 +22,7 @@ npm install e npm run dev
 
  php artisan vendor:publish
 
+ ### Classe Texto para texto de notificação
+
+php artisan make:notification RedefinirSenhaNotification
+
