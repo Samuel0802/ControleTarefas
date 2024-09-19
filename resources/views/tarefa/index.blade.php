@@ -19,6 +19,7 @@
                                     <th scope="col">Tarefas</th>
                                     <th scope="col">Data limite conclusão</th>
                                     <th scope="col"></th>
+                                    <th scope="col"></th>
 
                                 </tr>
                             </thead>
@@ -30,6 +31,14 @@
                                     <td>{{ $tarefa->tarefa }}</td>
                                     <td>{{ date('d/m/Y', strtotime($tarefa['data_limite_conclusao'])) }}</td>
                                     <td><a class="btn btn-warning" href="{{ route('tarefa.edit', $tarefa['id']) }}">Editar</a></td>
+
+                                    <form id="form_{{ $tarefa['id'] }}" method="POST" action="{{ route('tarefa.destroy', ['tarefa' => $tarefa['id']]) }}">
+                                        @method('DELETE')
+                                      @csrf
+
+                                    <td><a class="btn btn-danger" href="#" onclick="document.getElementById('form_{{ $tarefa['id'] }}').submit()">Excluir</a></td>
+                                </form>
+
                                 </tr>
                                 @endforeach
                             </tbody>
