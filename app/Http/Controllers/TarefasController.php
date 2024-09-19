@@ -70,7 +70,14 @@ class TarefasController extends Controller
 
     public function edit(Tarefa $tarefa)
     {
-      return view('tarefa.edit', ['tarefa' => $tarefa]);
+        $user_id = auth()->user()->id; //
+
+        //se user_id de tarefa for igual user autenticado carregar tarefa.edit
+        //validando a rota/id
+      if($tarefa->user_id == $user_id){
+        return view('tarefa.edit', ['tarefa' => $tarefa]);
+      }
+    return view('acesso-negado');
     }
 
 
@@ -90,9 +97,18 @@ class TarefasController extends Controller
 
              $request->validate($regras, $feedback);
 
-             $tarefa->update($request->all());
+             $user_id = auth()->user()->id;
 
-             return redirect()->route('tarefa.show',['tarefa' => $tarefa]);
+              //se user_id de tarefa for igual user autenticado carregar tarefa.show
+           //Validando id do update para não ser mudado
+             if($tarefa->user_id == $user_id){
+
+                $tarefa->update($request->all());
+                return redirect()->route('tarefa.show',['tarefa' => $tarefa]);
+             }
+
+             return view('acesso-negado');
+
     }
 
 
