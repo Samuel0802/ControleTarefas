@@ -19,7 +19,7 @@ class TarefasController extends Controller
     public function index()
     {
      $user_id = auth()->user()->id; //recuperando id do users autenticado
-    $tarefas = Tarefa::where('user_id', $user_id)->paginate(1);  //Validação de login de usuário e recuperando os dados
+    $tarefas = Tarefa::where('user_id', $user_id)->paginate(10);  //Validação de login de usuário e recuperando os dados
 
   return view('tarefa.index', ['tarefas' => $tarefas]);
     }
@@ -70,13 +70,29 @@ class TarefasController extends Controller
 
     public function edit(Tarefa $tarefa)
     {
-        //
+      return view('tarefa.edit', ['tarefa' => $tarefa]);
     }
 
 
     public function update(Request $request, Tarefa $tarefa)
     {
-        //
+               //Validação de campo
+            $regras = [
+                'tarefa' => 'required|min:3|max:256',
+                'data_limite_conclusao' => 'required',
+             ];
+
+             $feedback = [
+              'tarefa.min' => 'O campo tarefa deve ter no mínimo 3 caracteres',
+              'tarefa.max' => 'O campo tarefa deve ter no maximo 256 caracteres',
+             'required' => 'O campo :attribute deve ser preenchido',
+             ];
+
+             $request->validate($regras, $feedback);
+
+             $tarefa->update($request->all());
+
+             return redirect()->route('tarefa.show',['tarefa' => $tarefa]);
     }
 
 

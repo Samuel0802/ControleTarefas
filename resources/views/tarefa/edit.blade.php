@@ -1,0 +1,44 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Atualizar Tarefa</div>
+
+                <div class="card-body">
+
+                    <form method="POST" action="{{ route('tarefa.update', ['tarefa' => $tarefa->id]) }}">
+                        @csrf
+
+                        @method('PUT')
+
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Tarefa</label>
+                          <input type="text" class="form-control"  aria-describedby="emailHelp" name="tarefa" value="{{$tarefa->tarefa }}">
+
+                          <div class="text-danger">
+                            {{ $errors->has('tarefa') ? $errors->first('tarefa') : '' }}
+                        </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Data limite conclusão</label>
+                          <input type="date" class="form-control" name="data_limite_conclusao" value="{{ $tarefa->data_limite_conclusao }}">
+
+                          <div class="text-danger">
+                            {{ $errors->has('data_limite_conclusao') ? $errors->first('data_limite_conclusao') : '' }}
+                        </div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                      </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
