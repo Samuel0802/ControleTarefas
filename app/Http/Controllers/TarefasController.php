@@ -18,26 +18,10 @@ class TarefasController extends Controller
 
     public function index()
     {
+     $user_id = auth()->user()->id; //recuperando id do users autenticado
+    $tarefas = Tarefa::where('user_id', $user_id)->paginate(1);  //Validação de login de usuário e recuperando os dados
 
-    //    if(auth()->check()){
-    //     $name = auth()->user()->name;
-    //     return "Olá, $name";
-    //    }else{
-    //     return 'Você não está logado no sistema';
-    //    }
-
- //Validação de login de usuário e recuperando os dados
-    if(Auth::check()){
-
-      $name = Auth::user()->name; //Carregando o nome do usuario logado
-
-      return "Olá, $name";
-
-    }else{
-
-      return "Você não está logado";
-    }
-        return 'Chegamos até aqui';
+  return view('tarefa.index', ['tarefas' => $tarefas]);
     }
 
  //create ele joga para store para fazer o insert
@@ -65,7 +49,7 @@ class TarefasController extends Controller
          $request->validate($regras, $feedback);
 
        $dados = $request->all('tarefa','data_limite_conclusao'); //os atributos que serão recuperado para create receber
-       $dados  ['user_id'] = auth()->user()->id; //Receber id do usuário autentificado
+       $dados  ['user_id'] = auth()->user()->id; //Associando o users a tarefa
 
        $tarefa = Tarefa::create($dados);
 

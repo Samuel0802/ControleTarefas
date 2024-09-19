@@ -12,9 +12,9 @@ Route::get('/', function () {
 //Rota de Verificação de email
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
-->name('home')
-->middleware('verified');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+// ->name('home')
+// ->middleware('verified');
 
 Route::resource('/tarefa', TarefasController::class)
 ->middleware('verified');
