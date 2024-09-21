@@ -1,31 +1,52 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
+@section('conteudo')
+    <main class="content col-one">
 
-                    {{-- Recuperando nova da tarefa --}}
-                    <div class="card-header">{{ $tarefa->$tarefa }}</div>
+        <div class="container-sm  ">
 
-                    <div class="card-body">
+            <div align="center">
+                <br><br>
+                <h1 class="title margin-bottom: 10px; wow fadeInDown">Tarefa Solicitada</h1>
+                <hr class="barra-title" style="width: 60%; background-color: white;">
+                <br>
 
+
+                <form class="row g-3  border-light mt-4 ">
+
+                    <div class="row g-3 t ">
+
+                    <div class="mb-3">
+                        <h3 class="title margin-bottom: 10px; wow fadeInDown title-sub">{{ $tarefa->tarefa }}</h3>
+
+                        </div>
 
                         <fieldset disabled>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Data limite conclusão</label>
-                                <input type="date" class="form-control" value="{{ $tarefa->data_limite_conclusao }}">
-                            </div>
+                        <div class="col-sm col-md-12">
+                            <label for="inputEmail4" class="form-label title-sub"><b>Data limite conclusão</b></label>
+                            <input type="date" name="data_limite_conclusao" value="{{ $tarefa->data_limite_conclusao }}" id="date" class="form-control"
+                            aria-label="Last name" required>
+                        </div>
                         </fieldset>
 
+
+                        <div class="col-md-12 " align="right" style="right: 50px;">
                         {{-- Retroceder rota --}}
                         <a href="{{ url()->previous() }}" class="btn btn-primary">Voltar</a>
 
-
+                        </div>
                     </div>
-                </div>
+                </form>
+
             </div>
+
         </div>
-    </div>
+
+    </main>
+@endsection
+
+@section('script')
+    <script>
+
+    </script>
 @endsection

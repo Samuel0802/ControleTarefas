@@ -12,16 +12,8 @@
                     <span class="menu-title">Recebimento Online</span>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="#">
-                    <span class="menu-title"></span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="#">
-                    <span class="menu-title"></span>
-                </a>
-            </li>
+
+
         </ul>
     </div>
 </li>

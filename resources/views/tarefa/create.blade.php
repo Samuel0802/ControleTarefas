@@ -1,41 +1,62 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Adicionar Tarefa</div>
+@section('conteudo')
+    <main class="content col-one">
 
-                <div class="card-body">
+        <div class="container-sm  ">
 
-                    <form method="POST" action="{{ route('tarefa.store') }}">
-                        @csrf
+            <div align="center">
+                <br><br>
+                <h1 class="title margin-bottom: 10px; wow fadeInDown">Adicionar Nova Tarefa</h1>
+                <hr class="barra-title" style="width: 60%; background-color: white;">
+                <br>
 
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Tarefa</label>
-                          <input type="text" class="form-control"  aria-describedby="emailHelp" name="tarefa">
 
-                          <div class="text-danger">
+                <form class="row g-3  border-light mt-4 " method="post" enctype="multipart/form-data"
+                action="{{ route('tarefa.store') }}">
+
+                    @csrf
+                    <div class="row g-3 t ">
+
+                        <div class="col-md-12">
+                            <label for="inputEmail4" class="form-label title-sub"><b>Tarefa</b></label>
+
+                                <textarea class="form-control"  name="tarefa" id="causa" maxlength="256" style="height: 100px" required></textarea>
+
+                                <div class="text-danger">
                             {{ $errors->has('tarefa') ? $errors->first('tarefa') : '' }}
                         </div>
+
                         </div>
 
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Data limite conclusão</label>
-                          <input type="date" class="form-control" name="data_limite_conclusao">
-                          <div class="text-danger">
+
+                        <div class="col-sm col-md-12">
+                            <label for="inputEmail4" class="form-label title-sub"><b>Data limite conclusão</b></label>
+                            <input type="date" name="data_limite_conclusao" id="date" class="form-control"
+                            aria-label="Last name" required>
+
+                            <div class="text-danger">
                             {{ $errors->has('data_limite_conclusao') ? $errors->first('data_limite_conclusao') : '' }}
                         </div>
+
                         </div>
 
 
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
-                      </form>
+                        <div class="col-md-12 " align="right" style="right: 50px;">
+                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        </div>
+                    </div>
+                </form>
 
-                </div>
             </div>
+
         </div>
-    </div>
-</div>
+
+    </main>
+@endsection
+
+@section('script')
+    <script>
+
+    </script>
 @endsection

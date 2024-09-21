@@ -30,7 +30,7 @@
                         <li class="menu-item">
                             <a id="relatorioLink" class="menu-link"
                                 href="{{ route('tarefa.index') }}">
-                                <span class="menu-title">Minha Tarefa</span>
+                                <span class="menu-title">Listar Tarefas</span>
                             </a>
                         </li>
 

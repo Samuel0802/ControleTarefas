@@ -48,7 +48,7 @@
     </script>
 
 
-    <title>FCC DO BRASIL</title>
+    <title>Controle de Tarefas</title>
 </head>
 
 <script>
@@ -80,24 +80,28 @@
 
 
 <body onload="carregar()">
+    @auth
+
+
     @php
         use App\Http\Controllers\PermissaoController;
     @endphp
+
     <div class="layout has-sidebar fixed-sidebar fixed-header">
         <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
             <a id="btn-collapse" class="sidebar-collapser">
                 <i class="ri-arrow-left-s-line" onclick="mudarImagem()"></i>
             </a>
             <div class="image-wrapper">
-                <img href="/assets/img/logohome.png" alt="sidebar background" />
+                <img href="/assets/img/logo.png" alt="sidebar background" />
             </div>
             <div class="sidebar-layout">
                 <div class="sidebar-header">
                     <div class="pro-sidebar-logo">
 
-                        <a href="#">
+                        <a href="{{ route('home') }}">
                             <img id="imagem" class="img-home animated fadeIn" alt="Imagem Padrão"
-                                src="/assets/img/logofcc.png" style="width: 110px; height: 80px"></a>
+                                src="/assets/img/logo.png" style="width: 50px; height: 50px; "></a>
                         <h5></h5>
                     </div>
                 </div>
@@ -109,7 +113,7 @@
 
 
                         <ul>
-                            <li class="menu-header"><span> SETORES </span></li>
+                            <li class="menu-header"><span> CONTROLES </span></li>
                             <hr class="barra-title" style="width: 60%; background-color: white;">
                             <!-- SETOR DO FINANCEIRO -->
 
@@ -326,7 +330,11 @@
         </script>
 
 
+@endauth
 
+@guest
+    Ola, Visitante
+@endguest
 </body>
 
 </html>
