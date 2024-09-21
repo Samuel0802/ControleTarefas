@@ -1,0 +1,55 @@
+body{
+    margin-left: 50px;  /* Adicione a margem esquerda desejada */
+       margin-right: 50px;
+}
+   
+
+   
+
+/* Desktop (col-lg) 992px+ */
+@media (min-width: 992px) {
+    .col-one {
+        padding-left: 45px!important;
+        padding-right: 45px!important;
+    }
+}
+
+/* Desktop e Tablets (col-md) 768px a 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Tablets (col-sm) 576px a 767px */
+@media (min-width: 576px) and (max-width: 767px) {
+
+}
+
+/* Tablets e Celulares (col) 0px a 767px */
+@media (max-width: 767px) {
+
+    .no-mobile {
+        display: none!important;
+    }
+
+    .col-one {
+        padding-left: 25px!important;
+        padding-right: 25px!important;
+        
+    }
+
+    
+}
+
+.border-light {
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    padding: 15px; 
+    background-color:  rgba(11, 26, 44, 0.9);
+  }
+
+
+.title-sub{
+    color: white;
+   
+}
+

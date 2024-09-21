@@ -1,0 +1,32 @@
+:root {
+    --text-color: #dee2ec;
+    --secondary-text-color: #dee2ec;
+  
+    --bg-color: #0c1e35;
+    --secondary-bg-color: #0b1a2c;
+  
+    --border-color: rgba(83, 93, 125, 0.3);
+  
+    --sidebar-header-height: 100px;
+    --sidebar-footer-height: 230px;
+
+
+    /* FONTS */
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+
+  --title-font: "Poppins", sans-serif;
+  --body-font: "DM Sans", sans-serif;
+  }
+
+  
+.title-justificativa{
+  color: var(--bg-color)!important;
+  text-decoration: none;
+}
+
+.btn-fcc{
+  background-color: var(--secondary-bg-color)!important;
+}
+
+ 

@@ -1,0 +1,56 @@
+/* Adiciona borda à direita nas células que precisam de divisão */
+.divide-cells th:nth-child(1),
+.divide-cells td:nth-child(1),
+.divide-cells th:nth-child(2),
+.divide-cells td:nth-child(2),
+.divide-cells th:nth-child(3),
+.divide-cells td:nth-child(3),
+.divide-cells th:nth-child(4),
+.divide-cells td:nth-child(4),
+.divide-cells th:nth-child(5),
+.divide-cells td:nth-child(5),
+.divide-cells th:nth-child(6),
+.divide-cells td:nth-child(6),
+.divide-cells th:nth-child(7),
+.divide-cells td:nth-child(7),
+.divide-cells th:nth-child(8),
+.divide-cells td:nth-child(8),
+.divide-cells th:nth-child(9),
+.divide-cells td:nth-child(9),
+.divide-cells th:nth-child(10),
+.divide-cells td:nth-child(10),
+.divide-cells th:nth-child(11),
+.divide-cells td:nth-child(11) {
+    border-right: 1px solid #dee2e6;
+}
+
+/* Adiciona borda à direita na última célula */
+.divide-cells th:last-child,
+.divide-cells td:last-child {
+    border-right: 1px solid #dee2e6 !important;
+    /* !important para garantir a prioridade */
+}
+
+/* Define a cor #3366CC para os campos específicos */
+.color-custos,
+.color-conta,
+.color-descricao,
+.color-mes,
+.color-ano,
+.color-motivo,
+.color-causa,
+.color-acao,
+.color-v-orcado,
+.color-v-real,
+.color-dif,
+.color-detalhes {
+    color: #3366CC !important;
+    /* !important para garantir a prioridade */
+}
+
+
+.divider-2 {
+    height: 1px;
+    background: #f47521;
+  }
+  

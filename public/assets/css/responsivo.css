@@ -1,0 +1,96 @@
+
+
+/* Desktop (col-lg) 992px+ */
+@media (min-width: 992px) {
+    .col-one {
+        padding-left: 45px!important;
+        padding-right: 45px!important;
+    }
+    .tabela-list{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-fun{
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* Desktop e Tablets (col-md) 768px a 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+
+   
+
+}
+
+/* Tablets (col-sm) 576px a 767px */
+@media (min-width: 576px) and (max-width: 767px) {
+    .tabela-list{
+        display: block;
+    }
+
+
+}
+
+/* Tablets e Celulares (col) 0px a 767px */
+@media (max-width: 767px) {
+
+    .no-mobile {
+        display: none!important;
+    }
+
+
+    .col-one {
+        padding-left: 25px!important;
+        padding-right: 25px!important;
+        
+    }
+
+    .tabela-list{
+        display: block!important;
+    }
+
+    .card-fun{
+        width: 280px;
+        height: 280px;
+    }
+
+    
+}
+
+.border-light {
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    padding: 15px; 
+    background-color:  rgba(11, 26, 44, 0.9);
+  }
+
+
+.title-sub{
+    color: white;
+   
+}
+
+
+ /* responsividade tela insights*/
+
+
+.row.border-light-none {
+    display: block;
+  }
+  
+  /* Estilos para telas pequenas (até 576 pixels) */
+  @media (max-width: 767px) {
+    .row.border-light-none {
+        display: none;
+    }
+
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .row.border-light-none {
+        display: none;
+    }
+
+}

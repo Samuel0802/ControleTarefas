@@ -7,7 +7,7 @@
                 <div class="card">
 
                     {{-- Recuperando nova da tarefa --}}
-                    <div class="card-header">Minhas Tarefas</div>
+                    <div class="card-header">Minhas Tarefas <a class="btn btn-success float-end" href="{{ route('tarefa.create') }}">Nova Tarefa</a></div>
 
                     <div class="card-body">
 
@@ -43,6 +43,8 @@
                                 @endforeach
                             </tbody>
                         </table>
+
+
 
                         {{-- paginação --}}
                         <nav aria-label="Page navigation example " >

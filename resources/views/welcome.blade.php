@@ -7,6 +7,8 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
+         {{-- Dependencia toastr função de alert css --}}
+     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
@@ -136,5 +138,15 @@
                 </div>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="/js/bootstrap.blundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+         {{-- BlocUI loading --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script>
+           {{-- Dependencia toastr função de alert js --}}
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
     </body>
 </html>

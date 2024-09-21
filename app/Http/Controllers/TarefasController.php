@@ -7,6 +7,7 @@ use App\Mail\NovaTarefaMail;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Validação de login de usuário
+use Brian2694\Toastr\Facades\Toastr;
 
 class TarefasController extends Controller
 {
