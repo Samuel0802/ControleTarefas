@@ -14,4 +14,12 @@ class Tarefa extends Model
         'data_limite_conclusao',
         'user_id'
     ];
+
+    public function user(){
+        //belongsTo()
+        //Uma TAREFA pertence a um USER
+        return $this->belongsTo('App\Models\User');
+    }
+
+
 }

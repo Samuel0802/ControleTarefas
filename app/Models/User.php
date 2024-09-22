@@ -55,9 +55,16 @@ public function sendPasswordResetNotification($token)
     $this->notify(new RedefinirSenhaNotification($token, $this->email, $this->name));
 }
 
+//Metodo de verificação de email
 public function sendEmailVerificationNotification()
 {
     $this->notify(new VerificarEmailNotification($this->name));
+}
+
+public function tarefas(){
+    //HasMany (Tem muitos)
+    //USER pertence a muitas TAREFAS
+    return $this->hasMany('App\Models\Tarefa');
 }
 
 

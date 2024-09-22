@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Tarefa;
+
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class TarefasExport implements FromCollection
@@ -11,7 +12,8 @@ class TarefasExport implements FromCollection
 
     public function collection()
     {
-        //Responsavel por recuperar todos os registro de tarefas
-        return Tarefa::all();
+        //baixando tarefas apenas do user autenticado no sistema
+        return auth()->user()->tarefas()->get();
     }
+
 }
