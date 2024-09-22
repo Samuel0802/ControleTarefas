@@ -13,12 +13,20 @@ class ExportacaoController extends Controller
 
         $nome_arquivo = 'lista_de_tarefas';
 
-       if($extensao == 'xlsx'){
+       if($extensao == 'xlsx')
+       {
        $nome_arquivo .= '.'.$extensao;
        }
-       else if($extensao == 'csv'){
+       else if($extensao == 'csv')
+       {
         $nome_arquivo .= '.'.$extensao;
-       } else{
+       }
+       else if($extensao == 'pdf')
+       {
+        $nome_arquivo .= '.'.$extensao;
+       }
+       else
+       {
         return redirect()->route('tarefa.index');
        }
 

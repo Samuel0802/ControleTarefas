@@ -37,3 +37,8 @@ php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" -
  php artisan make:export TarefasExport  --model=Tarefa
  https://docs.laravel-excel.com/3.1/exports/
 
+ ## Exportando um arquivo em PDF
+
+ composer require mpdf/mpdf --ignore-platform-reqs
+
+
