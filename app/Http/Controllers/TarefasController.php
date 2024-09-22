@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TarefasExport;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NovaTarefaMail;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Validação de login de usuário
 use Brian2694\Toastr\Facades\Toastr;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class TarefasController extends Controller
 {
     //Implementando o Middleware auth
    public function __construct(){
-    $this->middleware('auth');
+    // $this->middleware('auth');
    }
 
 
@@ -31,7 +34,7 @@ class TarefasController extends Controller
         return view('tarefa.create');
     }
 
-
+// Create das tarefas
     public function store(Request $request)
     {
 
@@ -81,7 +84,7 @@ class TarefasController extends Controller
     return view('acesso-negado');
     }
 
-
+//Update nas tarefas
     public function update(Request $request, Tarefa $tarefa)
     {
                //Validação de campo
@@ -112,7 +115,7 @@ class TarefasController extends Controller
 
     }
 
-
+// Excluir as Tarefas
     public function destroy(Tarefa $tarefa)
     {
          if(!$tarefa->user_id == auth()->user()->id){
@@ -122,4 +125,6 @@ class TarefasController extends Controller
          $tarefa->delete();
          return redirect()->route('tarefa.index');
     }
+
+
 }

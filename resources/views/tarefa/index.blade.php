@@ -11,20 +11,16 @@
                 <h1 class="title margin-bottom: 10px; animated fadeInDown">Lista de tarefas</h1>
                 <hr class="barra-title" style="width: 60%; background-color: black;">
                 <br>
-                <form>
-                    <div class="box-search pesquisar-style">
 
-                        <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar" name="search">
-                        <button type="submit" class="btn btn-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-search" viewBox="0 0 16 16">
-                                <path
-                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                            </svg>
-                        </button>
-
+                <div class="box-search pesquisar-style row">
+                    <div class="col-6"><strong>Tipo Exportação</strong></div>
+                    <div class="col 6">
+                        <a href="{{ route('exportacao') }}" class="btn btn-success mr-3">XLSX</a>
+                        <a href="#" class="btn btn-secondary">CSV</a>
+                        <a href="#" class="btn btn-danger">PDF</a>
                     </div>
-                </form>
+                </div>
+
                 <br><br>
                 <div class="tabela-list">
 
