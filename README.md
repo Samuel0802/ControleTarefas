@@ -26,3 +26,6 @@ npm install e npm run dev
 
 php artisan make:notification RedefinirSenhaNotification
 
+### Pacote Laravel Excel
+
+composer require maatwebsite/excel:^3.1.47 --ignore-platform-reqs

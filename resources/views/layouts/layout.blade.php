@@ -80,12 +80,7 @@
 
 
 <body onload="carregar()">
-    @auth
 
-
-    @php
-        use App\Http\Controllers\PermissaoController;
-    @endphp
 
     <div class="layout has-sidebar fixed-sidebar fixed-header">
         <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
@@ -330,11 +325,7 @@
         </script>
 
 
-@endauth
 
-@guest
-    Ola, Visitante
-@endguest
 </body>
 
 </html>
