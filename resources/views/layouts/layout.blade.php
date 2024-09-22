@@ -118,44 +118,44 @@
 
                             <!--MENU RH-->
 
-                            @include('layouts.material')
+                            {{-- @include('layouts.material') --}}
 
                             <!--FIM MENU DOWN RH-->
 
                             <!--MENU DOWN ALMOXARIFADO-->
 
-                            @include('layouts.almoxarifado')
+                            {{-- @include('layouts.almoxarifado') --}}
 
                             <!--FIM MENU DOWN ALMOXARIFADO-->
 
                             <!--MENU DOWN COMERCIAL-->
-
-                            @include('layouts.celulares')
+{{--
+                            @include('layouts.celulares') --}}
 
                             <!--FIM MENU DOWN COMERCIAL-->
 
                              <!-- SETOR DO CQ -->
 
-                             @include('layouts.maps')
+                             {{-- @include('layouts.maps') --}}
 
                              <!-- FIM SETOR DO CQ -->
 
 
                              <!-- SETOR DO CQ -->
 
-                             @include('layouts.tema')
+                             {{-- @include('layouts.tema') --}}
 
                              <!-- FIM SETOR DO CQ -->
 
 
 
 
-                            <li class="menu-header" style="padding-top: 20px"><span> EXTRA </span></li>
-                            <hr class="barra-title" style="width: 60%; background-color: white;">
+                            {{-- <li class="menu-header" style="padding-top: 20px"><span> EXTRA </span></li>
+                            <hr class="barra-title" style="width: 60%; background-color: white;"> --}}
 
                             <!-- MENU DE EXTRAS-->
 
-                            @include('layouts.extra')
+                            {{-- @include('layouts.extra') --}}
 
                             <!--FIM MENU EXTRAS-->
 
@@ -180,11 +180,7 @@
                     </nav>
                 </div>
 
-                {{-- <script>
-                    function sair() {
-                        document.getElementById('logout').submit();
-                    }
-                </script> --}}
+
 
                 <!-- MENU DE EXTRAS-->
 
