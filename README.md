@@ -29,9 +29,11 @@ php artisan make:notification RedefinirSenhaNotification
 ### Pacote Laravel Excel
 
 composer require maatwebsite/excel:^3.1.47 --ignore-platform-reqs
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" --tag=config
 
 
 ## Exportando um arquivo em XLSX
 
  php artisan make:export TarefasExport  --model=Tarefa
  https://docs.laravel-excel.com/3.1/exports/
+

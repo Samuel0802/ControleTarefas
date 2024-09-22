@@ -25,7 +25,7 @@ Route::resource('/tarefa', TarefasController::class)
 // Route::get('tarefa/exportacao', [TarefasController::class, 'exportacao'])
 // ->name('exportacao');
 
-Route::get('/exportacao', [ExportacaoController::class, 'exportacao'])
+Route::get('/exportacao/{extensao}', [ExportacaoController::class, 'exportacao'])
     ->name('exportacao')
     ->middleware('verified');
 

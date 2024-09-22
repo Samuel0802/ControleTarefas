@@ -15,8 +15,8 @@
                 <div class="box-search pesquisar-style row">
                     <div class="col-6"><strong>Tipo Exportação</strong></div>
                     <div class="col 6">
-                        <a href="{{ route('exportacao') }}" class="btn btn-success mr-3">XLSX</a>
-                        <a href="#" class="btn btn-secondary">CSV</a>
+                        <a href="{{ route('exportacao', ['extensao' => 'xlsx']) }}" class="btn btn-success mr-3">XLSX</a>
+                        <a href="{{ route('exportacao', ['extensao' => 'csv']) }}" class="btn btn-secondary">CSV</a>
                         <a href="#" class="btn btn-danger">PDF</a>
                     </div>
                 </div>
