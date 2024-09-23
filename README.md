@@ -41,4 +41,10 @@ php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" -
 
  composer require mpdf/mpdf --ignore-platform-reqs
 
+## Exportando DomPDF 
+
+composer require barryvdh/laravel-dompdf --ignore-platform-reqs
+php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
+'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
+
 
