@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/css-pro-layout@1.1.0/dist/css/css-pro-layout.css" rel="stylesheet">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -40,33 +42,43 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-       >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
-    <title>Relatório da OP</title>
+    <title>CONTROLE DE TAREFAS</title>
     <style>
+        .page-break {
+            page-break-after: always;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
         }
-        table, th, td {
+
+        table,
+        th,
+        td {
             border: 1px solid black;
         }
-        th, td {
+
+        th,
+        td {
             padding: 8px;
             text-align: left;
         }
     </style>
 </head>
+
 <body>
-    <h2>LISTA DE TAREFAS</h2>
+    <div class="container">
+    <h2 align="center">LISTA DE TAREFAS</h2>
 
     <table>
         <thead>
-            <tr>
+            <tr style="font-size: 11pt !important">
                 <th>ID</th>
                 <th>TAREFA</th>
                 <th>DATA DA CONCLUSÃO</th>
@@ -75,18 +87,22 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($tarefas as $key => $tarefa)
-                <tr>
+            @foreach ($tarefas as $key => $tarefa)
+                <tr style="font-size: 11pt !important">
                     <td>{{ $tarefa->id }}</td>
                     <td>{{ $tarefa->tarefa }}</td>
-                    <td>{{ date('d/m/Y', strtotime($tarefa->data_limite_conclusao ))}}</td>
+                    <td>{{ date('d/m/Y', strtotime($tarefa->data_limite_conclusao)) }}</td>
 
                 </tr>
             @endforeach
         </tbody>
     </table>
 
+    {{-- PAGINA 2 --}}
+     {{-- <div class="page-break"></div>
+     <h1>Page 2</h1> --}}
 
+  </div>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
@@ -114,4 +130,5 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
 </body>
+
 </html>

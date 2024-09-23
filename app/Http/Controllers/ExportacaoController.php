@@ -37,9 +37,17 @@ class ExportacaoController extends Controller
   //Uso DOMPDF
     public function exportar(){
 
-             $tarefas = auth()->user()->tarefas()->get(); //Recuperando as tarefas do user
+        $tarefas = auth()->user()->tarefas()->get(); //Recuperando as tarefas do user
 
         $pdf = Pdf::loadView('tarefa.pdf', ['tarefas' => $tarefas]);
+
+         //tipo de papel: a4, letter
+         //orientação 1: landscape (paisagem)
+         //orientação 2: portrait (retrato)
+        $pdf->setPaper('a4', 'landscape');
+
+
         return $pdf->download('lista_de_tarefas.pdf');
+       // return $pdf->stream('lista_de_tarefas.pdf'); = metodo PDF no navegador
     }
 }

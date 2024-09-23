@@ -28,7 +28,7 @@
         <div class="login-content">
 
             <div class="img col-sm-6">
-                <img src="/assets/img/logohome.png" style="height: 200px; margin-right: 300px;">
+                <img src="/assets/img/bg.svg" style="height: 200px; margin-right: 300px;">
             </div>
 
             <div class="login-content">
