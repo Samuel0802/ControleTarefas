@@ -15,12 +15,12 @@ Auth::routes(['verify' => true]);
 
 //Rota tela home
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
-->name('home')
-->middleware('verified');
+    ->name('home')
+    ->middleware('verified');
 
 //Rota de Tarefas
 Route::resource('/tarefa', TarefasController::class)
-->middleware('verified');
+    ->middleware('verified');
 
 // Route::get('tarefa/exportacao', [TarefasController::class, 'exportacao'])
 // ->name('exportacao');
@@ -29,8 +29,12 @@ Route::get('/exportacao/{extensao}', [ExportacaoController::class, 'exportacao']
     ->name('exportacao')
     ->middleware('verified');
 
+Route::get('/exportar', [ExportacaoController::class, 'exportar'])
+    ->name('exportar')
+    ->middleware('verified');
+
 
 //Template Email
-Route::get('/mensagem', function(){
-  return new MensagemTesteMail;
+Route::get('/mensagem', function () {
+    return new MensagemTesteMail;
 });

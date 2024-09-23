@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Exports\TarefasExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class ExportacaoController extends Controller
@@ -31,5 +32,14 @@ class ExportacaoController extends Controller
        }
 
         return Excel::download(new TarefasExport, $nome_arquivo);
+    }
+
+  //Uso DOMPDF
+    public function exportar(){
+
+             $tarefas = auth()->user()->tarefas()->get(); //Recuperando as tarefas do user
+
+        $pdf = Pdf::loadView('tarefa.pdf', ['tarefas' => $tarefas]);
+        return $pdf->download('lista_de_tarefas.pdf');
     }
 }
