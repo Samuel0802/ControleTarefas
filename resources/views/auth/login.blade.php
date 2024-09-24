@@ -68,6 +68,8 @@
 
                     <input type="submit" name="submit" class="btn" value="enviar">
 
+                    <a  href="{{ route('register') }}">CRIAR CONTA</a>
+
                     <div class="row">
                         <div>
                             @if (Route::has('password.request'))

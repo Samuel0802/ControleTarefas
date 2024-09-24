@@ -9,6 +9,7 @@ use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //Validação de login de usuário
 use Brian2694\Toastr\Facades\Toastr;
+
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -55,11 +56,15 @@ class TarefasController extends Controller
        $dados = $request->all('tarefa','data_limite_conclusao'); //os atributos que serão recuperado para create receber
        $dados  ['user_id'] = auth()->user()->id; //Associando o users a tarefa
 
+
        $tarefa = Tarefa::create($dados);
+       Toastr::success('Gravado com sucesso');
 
        $destinatario = auth()->user()->email;//enviar e-mail do usuário logado (autentificado)
 
        Mail::to($destinatario)->send(new NovaTarefaMail($tarefa));//Disparando a mensagem conforme classe de email
+
+
 
        return redirect()->route('tarefa.show', ['tarefa' => $tarefa->id]);
 
@@ -108,6 +113,7 @@ class TarefasController extends Controller
              if($tarefa->user_id == $user_id){
 
                 $tarefa->update($request->all());
+                Toastr::success('Gravado com sucesso');
                 return redirect()->route('tarefa.show',['tarefa' => $tarefa]);
              }
 

@@ -18,6 +18,8 @@
 
 
     @yield('css')
+    {{-- Dependencia toastr função de alert css --}}
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
@@ -299,29 +301,16 @@
         <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
 
+           {{-- Dependencia toastr função de alert js --}}
+           <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+           <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
-        @yield('script')
 
-        {{-- API DO GOOGLE TRADUTOR --}}
-
-        {{-- <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'pt',
-                    includedLanguages: 'en,pt,ja',
-                    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-                }, 'google_translate_element');
-            }
-        </script>
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> --}}
-
-        </script>
         <script>
             new WOW().init();
         </script>
 
 
-
+{!! Toastr::message() !!}
 </body>
-
 </html>

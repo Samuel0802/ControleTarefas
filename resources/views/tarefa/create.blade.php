@@ -10,7 +10,11 @@
                 <h1 class="title margin-bottom: 10px; wow fadeInDown">Adicionar Nova Tarefa</h1>
                 <hr class="barra-title" style="width: 60%; background-color: white;">
                 <br>
-
+                <script>
+                    @if(Session::has('success'))
+                        toastr.success("{{ Session::get('success') }}");
+                    @endif
+                </script>
 
                 <form class="row g-3  border-light mt-4 " method="post" enctype="multipart/form-data"
                 action="{{ route('tarefa.store') }}">
